@@ -24,10 +24,12 @@ function playRound(humanPick, computerPick){
             (humanPick === "scissors" && computerPick === 'paper'))
             {
                  console.log(`Player wins! ${humanPick} beats ${computerPick}`);
+                 humanScore++;
             }
     else
         {
             console.log(`Player loses! ${computerPick} beats ${humanPick}`);
+            computerScore++;
         } 
 }
 
