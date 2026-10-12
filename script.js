@@ -13,15 +13,27 @@ function getHumanChoice(){
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
+    console.log(`GAME START--->\n`);
 
-    let playerPick = getHumanChoice();
-    let opponentPick = getComputerChoice();
+    //Setting game limit to 5 games
+    for(let gameRound = 1;gameRound <= 5; gameRound++){
+        console.log(`\nRound ${gameRound}\n`);
+         let playerPick = getHumanChoice();
+         let opponentPick = getComputerChoice();
 
-    console.log(`Player: ${playerPick} | Computer:  ${opponentPick}`);
+         console.log(`Player: ${playerPick} | Computer:  ${opponentPick}`);
 
-    let result = playRound(playerPick, opponentPick);
-    console.log(result);
+         let result = playRound(playerPick, opponentPick);
+         console.log(result);
+    }
 
+    console.log(`\nGAME OVER!\n`);
+    console.log(`Player score: ${humanScore} || Computer score: ${computerScore}`);
+    if(humanScore > computerScore){
+        console.log(`\n!!!PLAYER WINS!!!!\n`);
+    }   else{
+        console.log(`\n!!!PLAYER LOSES!!!!\n`);
+    }
 
     function playRound(humanPick, computerPick){    
          humanPick = humanPick.toLowerCase();
