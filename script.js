@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice(){
     let computerPick = Math.floor(Math.random() * (3 - 1 + 1) + 1);
     if(computerPick === 1) return "rock"; 
@@ -13,28 +10,38 @@ function getHumanChoice(){
     return humanPick;
 }
 
-function playRound(humanPick, computerPick){
-    humanPick = humanPick.toLowerCase();
-    computerPick = computerPick.toLowerCase();
-    if(humanPick === computerPick){
-        console.log("It's a draw! Try again.");
-    }
-    else if ((humanPick === "rock" && computerPick === 'scissors') ||
-            (humanPick === "paper" && computerPick === 'rock') ||
-            (humanPick === "scissors" && computerPick === 'paper'))
-            {
-                 console.log(`Player wins! ${humanPick} beats ${computerPick}`);
-                 humanScore++;
+function playGame(){
+    let humanScore = 0;
+    let computerScore = 0;
+
+    let playerPick = getHumanChoice();
+    let opponentPick = getComputerChoice();
+
+    console.log(`Player: ${playerPick} | Computer:  ${opponentPick}`);
+
+    let result = playRound(playerPick, opponentPick);
+    console.log(result);
+
+
+    function playRound(humanPick, computerPick){    
+         humanPick = humanPick.toLowerCase();
+         computerPick = computerPick.toLowerCase();
+         if(humanPick === computerPick){
+            return "It's a draw! Try again.";
             }
-    else
-        {
-            console.log(`Player loses! ${computerPick} beats ${humanPick}`);
-            computerScore++;
+        else if ((humanPick === "rock" && computerPick === 'scissors') ||
+                (humanPick === "paper" && computerPick === 'rock') ||
+                (humanPick === "scissors" && computerPick === 'paper'))
+              {
+                 humanScore++;
+                 return `Player wins! ${humanPick} beats ${computerPick}`;;
+                 
+            }else{
+                computerScore++;
+                return `Player loses! ${computerPick} beats ${humanPick}`;;
         } 
+    }
+
 }
 
-let hPick = getHumanChoice();
-let cPick = getComputerChoice();
-console.log(hPick);
-console.log(cPick);
-playRound(hPick, cPick);
+playGame();
