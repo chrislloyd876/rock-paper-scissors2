@@ -1,3 +1,4 @@
+//How to get the options from the computer
 function getComputerChoice(){
     let computerPick = Math.floor(Math.random() * (3 - 1 + 1) + 1);
     if(computerPick === 1) return "rock"; 
@@ -5,28 +6,26 @@ function getComputerChoice(){
     else return "scissors";
 };
 
+//How to get the user's choice
 function getHumanChoice(){
     let humanPick = prompt("Rock, Paper, or Scissors?");
     return humanPick;
 }
 
+//Full Game
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
     console.log(`<---GAME START--->\n`);
 
-    //Setting game limit to 5 games
-    for(let gameRound = 1;gameRound <= 5; gameRound++){
-        console.log(`\nRound ${gameRound}\n`);
-         let playerPick = getHumanChoice();
-         let opponentPick = getComputerChoice();
-
-         console.log(`Player chooses: ${playerPick} | Computer chooses:  ${opponentPick}`);
-
-         let result = playRound(playerPick, opponentPick);
-         console.log(result);
-         console.log(`PLAYER SCORE: ${humanScore} || COMPUTER SCORE: ${computerScore}`);
-    }
+    const buttonRock = document.createElement('button');
+    buttonRock.textContent = 'ROCK';
+    const buttonPaper = document.createElement('button');
+    buttonPaper.textContent = `PAPER`;
+    const buttonScissors = document.createElement('button');
+    buttonScissors.textContent = `SCISSORS`;
+    
+    
 
     console.log(`\nGAME OVER!\n`);
     console.log(`\n\t\t<---FINAL SCORES--->`);
