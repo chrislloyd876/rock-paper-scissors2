@@ -24,12 +24,20 @@ function playGame(){
     });
 
     const resultDisplay = document.createElement('div');
+    const finalDisplay = document.createElement('p');
     const container = document.querySelector('#container');
     container.appendChild(resultDisplay);
+    container.appendChild(finalDisplay);
 
     function updateScores(){
         playerScoreDisplay.textContent = humanScore;
         computerScoreDisplay.textContent = computerScore;
+        if(humanScore == 5){
+            finalDisplay.textContent = "PLAYER WINS!";
+            } else if (computerScore == 5){
+                finalDisplay.textContent = "COMPUTER WINS!";
+            }
+
     }
 
     function playRound(humanPick, computerPick){    
