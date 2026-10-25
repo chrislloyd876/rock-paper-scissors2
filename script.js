@@ -10,8 +10,9 @@ function getComputerChoice(){
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
-    console.log(`<---GAME START--->\n`);
-
+    
+    const playerScoreDisplay = document.querySelector("#player-score");
+    const computerScoreDisplay = document.querySelector("#computer-score");
     const buttons = document.querySelectorAll("button");
 
     buttons.forEach((btn) => {
@@ -26,13 +27,9 @@ function playGame(){
     const container = document.querySelector('#container');
     container.appendChild(resultDisplay);
 
-    console.log(`\nGAME OVER!\n`);
-    console.log(`\n\t\t<---FINAL SCORES--->`);
-    console.log(`PLAYER SCORE: ${humanScore} || COMPUTER SCORE: ${computerScore}`);
-    if(humanScore > computerScore){
-        console.log(`\n!!!PLAYER WINS!!!!\n`);
-    }   else{
-        console.log(`\n!!!PLAYER LOSES!!!!\n`);
+    function updateScores(){
+        playerScoreDisplay.textContent = humanScore;
+        computerScoreDisplay.textContent = computerScore;
     }
 
     function playRound(humanPick, computerPick){    
@@ -54,6 +51,7 @@ function playGame(){
                 result = `Player loses! ${computerPick} beats ${humanPick}`;;
         } 
         resultDisplay.textContent = result;
+        updateScores();
     }
 
 }
