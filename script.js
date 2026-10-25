@@ -12,20 +12,20 @@ function getHumanChoice(){
     return humanPick;
 }
 
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+    console.log(e.target.id);
+    });
+});
+
 //Full Game
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
     console.log(`<---GAME START--->\n`);
-
-    const buttonRock = document.createElement('button');
-    buttonRock.textContent = 'ROCK';
-    const buttonPaper = document.createElement('button');
-    buttonPaper.textContent = `PAPER`;
-    const buttonScissors = document.createElement('button');
-    buttonScissors.textContent = `SCISSORS`;
-    
-    
 
     console.log(`\nGAME OVER!\n`);
     console.log(`\n\t\t<---FINAL SCORES--->`);
@@ -56,5 +56,3 @@ function playGame(){
     }
 
 }
-
-playGame();
